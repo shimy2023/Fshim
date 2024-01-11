@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>مصباح يضيء وينطفئ</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    
+    .lamp {
+      font-size: 100px;
+      color: gray;
+      position: relative;
+    }
+    
+    .light-on {
+      color: yellow;
+    }
+    
+    .lamp::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      border-radius: 50%;
+      background: radial-gradient(yellow, transparent);
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .light-on::before {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="lamp" class="lamp">💡</div>
+  
+  <script>
+    var lamp = document.getElementById('lamp');
+    
+    lamp.addEventListener('click', function() {
+      lamp.classList.toggle('light-on');
+    });
+  </script>
+</body>
+</html>
